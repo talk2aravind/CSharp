@@ -1,11 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Trees.Lib;
 
 namespace Trees
 {
     public class MaximumConsequentSubsequence
     {
-        public int Find(TreeNode<int> root) => Find(root, -9999, 0);
+        public int Find(TreeNode<int> root) => Find(root, int.MaxValue, 0);
 
         private int Find(TreeNode<int> root, int prevValue, int currentCount)
         {
