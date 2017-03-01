@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Trees.Lib;
 
 namespace Trees
@@ -11,7 +10,7 @@ namespace Trees
         private int Find(TreeNode<int> root, int prevValue, int currentCount)
         {
             if (root == null)
-                return currentCount;
+                return 0;
 
             // Increment count if necessary.
             if (prevValue + 1 == root.Data)

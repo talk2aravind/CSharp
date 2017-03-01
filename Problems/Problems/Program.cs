@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Trees;
 using Trees.Lib;
 
@@ -9,6 +10,10 @@ namespace Problems
         static void Main(string[] args)
         {
             Console.WriteLine($"Max consequence subsequence: {FindMaxConsquenceSequence()}");
+
+            Console.WriteLine($"Boundary nodes:");
+            GetBoundaryNodes().ForEach(Console.WriteLine);
+
         }
 
         private static int FindMaxConsquenceSequence()
@@ -46,6 +51,49 @@ namespace Problems
             six.Right = nine;
 
             return new MaximumConsequentSubsequence().Find(fifteen);
+        }
+
+        private static List<int> GetBoundaryNodes()
+        {
+            /*
+                                          3
+										 / \
+										9   7
+									   / \ /
+									  2  1 8
+									 /  / \ \
+									13 4   0 6
+									      / \
+										 18 20
+
+             */
+
+            TreeNode<int> three = new TreeNode<int>(3);
+            TreeNode<int> nine = new TreeNode<int>(9);
+            TreeNode<int> seven = new TreeNode<int>(7);
+            TreeNode<int> two = new TreeNode<int>(2);
+            TreeNode<int> one = new TreeNode<int>(1);
+            TreeNode<int> eight = new TreeNode<int>(8);
+            TreeNode<int> thirteen = new TreeNode<int>(13);
+            TreeNode<int> four = new TreeNode<int>(4);
+            TreeNode<int> zero = new TreeNode<int>(0);
+            TreeNode<int> six = new TreeNode<int>(6);
+            TreeNode<int> eighteen = new TreeNode<int>(18);
+            TreeNode<int> twenty = new TreeNode<int>(20);
+
+            three.Left = nine;
+            three.Right = seven;
+            nine.Left = two;
+            nine.Right = one;
+            seven.Left = eight;
+            two.Left = thirteen;
+            one.Left = four;
+            one.Right = zero;
+            eight.Right = six;
+            zero.Left = eighteen;
+            zero.Right = twenty;
+
+            return new GetBoundaryNodes().Get(three);
         }
     }
 }
