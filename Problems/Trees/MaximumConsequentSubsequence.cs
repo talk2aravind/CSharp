@@ -3,6 +3,12 @@ using Trees.Lib;
 
 namespace Trees
 {
+    /// <summary>
+    /// Find maximum consequent sub sequence in a binary tree.
+    /// </summary>
+    /// <remarks>
+    /// http://buttercola.blogspot.com/2015/12/blog-post.html
+    /// </remarks>
     public class MaximumConsequentSubsequence
     {
         public int Find(TreeNode<int> root) => Find(root, int.MaxValue, 0);

@@ -16,6 +16,7 @@ namespace Problems
             GetBoundaryNodes().ForEach(Console.WriteLine);
 
             Console.WriteLine($"Islands in matrix: {FindIslands()}");
+            Console.WriteLine($"Least common ancestor: {Lca()}");
         }
 
         private static int FindMaxConsquenceSequence()
@@ -109,6 +110,50 @@ namespace Problems
             };
 
             return new IslandsInMatrix().Find(matrix, 4, 4);
+        }
+
+        private static int Lca()
+        {
+            /*
+
+                                          3
+										 / \
+										9   7
+									   / \ /
+									  2  1 8
+									 /  / \ \
+									13 4   0 6
+									      / \
+										 18 20
+
+             */
+
+            TreeNode<int> three = new TreeNode<int>(3);
+            TreeNode<int> nine = new TreeNode<int>(9);
+            TreeNode<int> seven = new TreeNode<int>(7);
+            TreeNode<int> two = new TreeNode<int>(2);
+            TreeNode<int> one = new TreeNode<int>(1);
+            TreeNode<int> eight = new TreeNode<int>(8);
+            TreeNode<int> thirteen = new TreeNode<int>(13);
+            TreeNode<int> four = new TreeNode<int>(4);
+            TreeNode<int> zero = new TreeNode<int>(0);
+            TreeNode<int> six = new TreeNode<int>(6);
+            TreeNode<int> eighteen = new TreeNode<int>(18);
+            TreeNode<int> twenty = new TreeNode<int>(20);
+
+            three.Left = nine;
+            three.Right = seven;
+            nine.Left = two;
+            nine.Right = one;
+            seven.Left = eight;
+            two.Left = thirteen;
+            one.Left = four;
+            one.Right = zero;
+            eight.Right = six;
+            zero.Left = eighteen;
+            zero.Right = twenty;
+
+            return new LeastCommonAncestor().Find(three, 13, 4).Data;
         }
     }
 }

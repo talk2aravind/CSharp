@@ -4,6 +4,9 @@ using Trees.Lib;
 
 namespace Trees
 {
+    /// <summary>
+    /// Get boundary elements in a tree.
+    /// </summary>
     public class GetBoundaryNodes
     {
         public List<int> Get(TreeNode<int> root)

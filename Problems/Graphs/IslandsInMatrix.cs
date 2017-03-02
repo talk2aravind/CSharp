@@ -1,5 +1,11 @@
 ﻿namespace Graphs
 {
+    /// <summary>
+    /// Find islands in a matrix.
+    /// </summary>
+    /// <remarks>
+    /// http://www.huristic.co/blog/2016/10/14/finding-islands-in-an-adjacency-matrix
+    /// </remarks>
     public class IslandsInMatrix
     {
         /// <summary>

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Lib\TreeNode.cs" />
     <Compile Include="GetBoundaryNodes.cs" />
+    <Compile Include="LeastCommonAncestor.cs" />
     <Compile Include="MaximumConsequentSubsequence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
