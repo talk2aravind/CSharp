@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Graphs;
 using Trees;
 using Trees.Lib;
 
@@ -14,6 +15,7 @@ namespace Problems
             Console.WriteLine($"Boundary nodes:");
             GetBoundaryNodes().ForEach(Console.WriteLine);
 
+            Console.WriteLine($"Islands in matrix: {FindIslands()}");
         }
 
         private static int FindMaxConsquenceSequence()
@@ -94,6 +96,19 @@ namespace Problems
             zero.Right = twenty;
 
             return new GetBoundaryNodes().Get(three);
+        }
+
+        private static int FindIslands()
+        {
+            var matrix = new int[,]
+            {
+                {1, 1, 1, 1},
+                {0, 1, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 1}
+            };
+
+            return new IslandsInMatrix().Find(matrix, 4, 4);
         }
     }
 }
