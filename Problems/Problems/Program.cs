@@ -17,6 +17,14 @@ namespace Problems
 
             Console.WriteLine($"Islands in matrix: {FindIslands()}");
             Console.WriteLine($"Least common ancestor: {Lca()}");
+
+            var k = 5;
+            Console.WriteLine($"Find all elements summing upto {k}:");
+            FindAllPathsOfSumK(k).ForEach(l =>
+            {
+                Console.WriteLine();
+                l.ForEach(x => Console.Write("\t" + x));
+            });
         }
 
         private static int FindMaxConsquenceSequence()
@@ -154,6 +162,45 @@ namespace Problems
             zero.Right = twenty;
 
             return new LeastCommonAncestor().Find(three, 13, 4).Data;
+        }
+
+        private static List<List<int>> FindAllPathsOfSumK(int k)
+        {
+            /*
+                                   1
+                                /     \
+                              3        -1
+                            /   \     /   \
+                           2     1   4     5                        
+                                /   / \     \                    
+                               1   1   2     6    
+             */
+
+
+            TreeNode<int> oneOne = new TreeNode<int>(1);
+            TreeNode<int> three = new TreeNode<int>(3);
+            TreeNode<int> minusOne = new TreeNode<int>(-1);
+            TreeNode<int> twoOne = new TreeNode<int>(2);
+            TreeNode<int> oneTwo = new TreeNode<int>(1);
+            TreeNode<int> four = new TreeNode<int>(4);
+            TreeNode<int> five = new TreeNode<int>(5);
+            TreeNode<int> oneThree = new TreeNode<int>(1);
+            TreeNode<int> oneFour = new TreeNode<int>(1);
+            TreeNode<int> twoTwo = new TreeNode<int>(2);
+            TreeNode<int> six = new TreeNode<int>(6);
+
+            oneOne.Left = three;
+            oneOne.Right = minusOne;
+            three.Left = twoOne;
+            three.Right = oneTwo;
+            minusOne.Left = four;
+            minusOne.Right = five;
+            oneTwo.Left = oneThree;
+            four.Left = oneFour;
+            four.Right = twoTwo;
+            five.Right = six;
+
+            return new AllKSumPaths().Get(oneOne, k);
         }
     }
 }

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllKSumPaths.cs" />
     <Compile Include="Lib\TreeNode.cs" />
     <Compile Include="GetBoundaryNodes.cs" />
     <Compile Include="LeastCommonAncestor.cs" />
