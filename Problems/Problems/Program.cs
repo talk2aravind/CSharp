@@ -27,8 +27,13 @@ namespace Problems
                 l.ForEach(x => Console.Write("\t" + x));
             });
 
-            var inputString = "xyzddd";
-            Console.WriteLine($"\n\nLongest palindromic substring for {inputString} is {new LongestPalidromicSubstring().Find(inputString)}");
+            var inputLongPalindrome = "xyzddd";
+            Console.WriteLine
+                ($"\n\nLongest palindromic substring for {inputLongPalindrome} is {new LongestPalindromicSubstring().Find(inputLongPalindrome)}");
+
+            var inputCreateLongPalindrome = "aaaabbbbxxxyz";
+            Console.WriteLine
+                ($"\n\nLongest palindromic string for {inputCreateLongPalindrome} is {new LongestPalindrome().Create(inputCreateLongPalindrome)}");
         }
 
         private static int FindMaxConsquenceSequence()

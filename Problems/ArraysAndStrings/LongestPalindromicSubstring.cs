@@ -1,8 +1,7 @@
-﻿using System;
-
+﻿
 namespace ArraysAndStrings
 {
-    public class LongestPalidromicSubstring
+    public class LongestPalindromicSubstring
     {
         /// <summary>
         /// Find the longest palindromic substring.
