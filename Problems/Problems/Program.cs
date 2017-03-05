@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ArraysAndStrings;
 using Graphs;
 using Trees;
 using Trees.Lib;
@@ -10,21 +11,24 @@ namespace Problems
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Max consequence subsequence: {FindMaxConsquenceSequence()}");
+            Console.WriteLine($"\n\nMax consequence subsequence: {FindMaxConsquenceSequence()}");
 
-            Console.WriteLine($"Boundary nodes:");
+            Console.WriteLine("\n\nBoundary nodes:");
             GetBoundaryNodes().ForEach(Console.WriteLine);
 
-            Console.WriteLine($"Islands in matrix: {FindIslands()}");
-            Console.WriteLine($"Least common ancestor: {Lca()}");
+            Console.WriteLine($"\n\nIslands in matrix: {FindIslands()}");
+            Console.WriteLine($"\n\nLeast common ancestor: {Lca()}");
 
             var k = 5;
-            Console.WriteLine($"Find all elements summing upto {k}:");
+            Console.WriteLine($"\n\nFind all elements summing upto {k}:");
             FindAllPathsOfSumK(k).ForEach(l =>
             {
                 Console.WriteLine();
                 l.ForEach(x => Console.Write("\t" + x));
             });
+
+            var inputString = "xyzddd";
+            Console.WriteLine($"\n\nLongest palindromic substring for {inputString} is {new LongestPalidromicSubstring().Find(inputString)}");
         }
 
         private static int FindMaxConsquenceSequence()

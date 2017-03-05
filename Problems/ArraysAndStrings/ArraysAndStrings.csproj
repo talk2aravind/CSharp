@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B8FEFB9C-D015-43A1-8CD5-94E66CEB10EB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{A50FBB8D-4F82-44E4-8DFE-2F94E565AFED}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Problems</RootNamespace>
-    <AssemblyName>Problems</AssemblyName>
+    <RootNamespace>ArraysAndStrings</RootNamespace>
+    <AssemblyName>ArraysAndStrings</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="LongestPalindromicSubstring.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArraysAndStrings\ArraysAndStrings.csproj">
-      <Project>{a50fbb8d-4f82-44e4-8dfe-2f94e565afed}</Project>
-      <Name>ArraysAndStrings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Graphs\Graphs.csproj">
-      <Project>{0f013159-c495-44ec-9a7d-cc7898229ce7}</Project>
-      <Name>Graphs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Trees\Trees.csproj">
-      <Project>{405ebb00-d8fa-440f-97e6-3d2fd1407773}</Project>
-      <Name>Trees</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
