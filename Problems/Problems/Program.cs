@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ArraysAndStrings;
 using Graphs;
+using Graphs.Lib;
 using Trees;
 using Trees.Lib;
 
@@ -34,6 +35,8 @@ namespace Problems
             var inputCreateLongPalindrome = "aaaabbbbxxxyz";
             Console.WriteLine
                 ($"\n\nLongest palindromic string for {inputCreateLongPalindrome} is {new LongestPalindrome().Create(inputCreateLongPalindrome)}");
+
+            Console.WriteLine($"\n\nDijkstra shortest path is {Dijkstra()}");
         }
 
         private static int FindMaxConsquenceSequence()
@@ -210,6 +213,68 @@ namespace Problems
             five.Right = six;
 
             return new AllKSumPaths().Get(oneOne, k);
+        }
+
+        private static int Dijkstra()
+        {
+            //http://www.geeksforgeeks.org/greedy-algorithms-set-6-dijkstras-shortest-path-algorithm/
+            GraphNode<char> zero = new GraphNode<char>('0');
+            GraphNode<char> one = new GraphNode<char>('1');
+            GraphNode<char> two = new GraphNode<char>('2');
+            GraphNode<char> three = new GraphNode<char>('3');
+            GraphNode<char> four = new GraphNode<char>('4');
+            GraphNode<char> five = new GraphNode<char>('5');
+            GraphNode<char> six = new GraphNode<char>('6');
+            GraphNode<char> seven = new GraphNode<char>('7');
+            GraphNode<char> eight = new GraphNode<char>('8');
+
+            zero.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {Tuple.Create(one, 4), Tuple.Create(seven, 8)};
+
+            one.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {Tuple.Create(two, 8), Tuple.Create(seven, 11), Tuple.Create(zero, 4)};
+
+            seven.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {
+                Tuple.Create(six, 1), Tuple.Create(eight, 7),
+                Tuple.Create(one, 11), Tuple.Create(zero, 8)
+            };
+
+            two.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {
+                Tuple.Create(three, 7), Tuple.Create(five, 4),
+                Tuple.Create(eight, 2), Tuple.Create(one, 8)
+            };
+
+            eight.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {
+                Tuple.Create(six, 6), Tuple.Create(two, 2),
+                Tuple.Create(seven, 7)
+            };
+
+            six.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {
+                Tuple.Create(five, 2), Tuple.Create(eight, 6),
+                Tuple.Create(seven, 1)
+            };
+
+            three.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {
+                Tuple.Create(four, 9), Tuple.Create(five, 14),
+                Tuple.Create(two, 7)
+            };
+
+            five.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {
+                Tuple.Create(four, 10), Tuple.Create(three, 14),
+                Tuple.Create(six, 2), Tuple.Create(two, 4)
+            };
+
+            four.Neighbours = new List<Tuple<GraphNode<char>, int>>
+            {Tuple.Create(three, 9), Tuple.Create(five, 10)};
+
+            var destination = '4';
+            return new DijkstraShortestPath().ComputeShortestPath(zero, destination);
         }
     }
 }
